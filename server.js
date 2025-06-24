@@ -8,7 +8,9 @@ const pictureRoutes = require('./routes/pictureRoutes');
 
 dotenv.config();
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/puzzles', puzzleRoutes);
 app.use('/api/music', musicRoutes);
